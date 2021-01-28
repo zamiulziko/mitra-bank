@@ -33,7 +33,7 @@
             <div class="col-md-4">
                 <div class="withdrew status">
                     <h5>Withdrew</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWithdrew">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -88,7 +88,11 @@
         const withdrewBtn = document.getElementById("addWithdrew");
         withdrewBtn.addEventListener("click", function(){
             const withdrewNumber = getInputNumber("withdrewAmmount");
-            console.log(withdrewNumber);
+            
+            updateSpanText("currentWithdrew", withdrewNumber);
+            updateSpanText("currentBalance", -1 * withdrewNumber);
+
+            document.getElementById("withdrewAmmount").value = "";
 
         })
 
